@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>demo</title>
+    <style>
+        input.ng-invalid{
+            background: #ccc;
+        }
+        /* ng-empty
+        ng-not-empty
+        ng-touched
+        ng-untouched
+        ng-valid
+        ng-invalid
+        ng-dirty
+        ng-pending
+        ng-pristine */
+    </style>
+</head>
+<body>
+    <form ng-app="" name="myForm">
+        email: <input type="email" name="myEmail" ng-model="myEmail" required><br>
+        <span ng-show="myForm.myEmail.$error.email">邮箱格式不正确</span><br>
+        <span ng-show="myForm.myEmail.$dirty">已触碰并改变此输入框</span><br>
+        <span ng-show="myForm.myEmail.$valid">格式正确</span><br>
+    </form>
+
+    <script src="static/angular/1.5.0/angular.js"></script>
+    <script>
+        
+    </script>
+</body>
+</html>

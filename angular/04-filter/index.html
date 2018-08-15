@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>demo</title>
+</head>
+<body ng-app="app">
+    <form action="" name="myForm" ng-init="myVal='1'">
+        <input type="text" name="myInput" ng-model="myVal" placeholder="初始值">
+        <p>{{myVal|reverse}}</p>
+    </form>
+    <script src="static/angular/1.5.0/angular.js"></script>
+    <script>
+        var app = angular.module('app',[]);
+
+        app.filter('reverse',function(){
+            return function(text){
+                return text.split("").reverse().join("");
+            }
+        })
+    </script>
+</body>
+</html>

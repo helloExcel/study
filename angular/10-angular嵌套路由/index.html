@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>demo</title>
+</head>
+<body ng-app="app">
+    <div>
+        <a ui-sref="home">首页</a>
+        <a ui-sref="game">游戏</a>
+        <a ui-sref="video">电影</a>
+    </div>
+
+    <ui-view></ui-view>
+    <script src="static/angular/1.5.0/angular.js"></script>
+    <script src="static/angular-ui-router/1.0.18/angular-ui-router.js"></script>
+    <script>
+        var app = angular.module('app',['ui.router']);
+
+        app.config(function($stateProvider){
+            $stateProvider
+                .state('home',{
+                    url: '/myhome',
+                    template: '<h1>首页页面</h1>'
+                })
+                .state('game',{
+                    url: '/myGame',
+                    templateUrl: 'template/game.html'
+                })
+                .state('video',{
+                    url: '/video',
+                    templateProvider: function(){
+                        return '<h1>电影页面</h1>'
+                    }
+                })
+                .state('game.home',{
+                    url: '/home',
+                    template: '<h3>游戏首页</h3>'
+                })
+                .state('game.news',{
+                    url: '/home',
+                    template: '<h3>游戏新闻</h3>'
+                })
+                .state('game.other', {
+                    url: '/home',
+                    template: '<h3>游戏其他</h3>'
+                })
+        })
+    </script>
+</body>
+</html>

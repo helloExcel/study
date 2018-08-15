@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>demo</title>
+</head>
+<body ng-app="valueApp">
+    <div ng-controller="valueCon">
+        <input type="button" ng-click="change()" value="改变">
+        <p>{{myAge}}</p>
+    </div>
+
+    <div ng-controller="twoCon">
+        <input type="button" ng-click="change()" value="改变">
+        <p>{{myAge}}</p>
+    </div>
+    
+    <script src="static/angular/1.5.0/angular.js"></script>
+    <script>
+        var app = angular.module('valueApp',[]);
+
+        app.controller('valueCon',function($scope,age){
+            $scope.myAge='16';
+            $scope.change=function(){
+                $scope.myAge=age++;
+            }
+        })
+
+        app.controller('twoCon', function ($scope, age) {
+            $scope.myAge = age;
+            $scope.change = function () {
+                $scope.myAge = age++;
+            }
+        })
+        app.constant('age',18);
+        // constant不能改变 可在config中注入
+        // value   能改变   不可在config中注入
+    </script>
+</body>
+</html>

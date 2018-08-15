@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>demo</title>
+</head>
+<body ng-app="app" ng-controller="myCon">
+    
+    <!-- 网站 属性:
+    <select name="" id="" ng-model="val" ng-options="x.name for x in options">
+
+    </select><br> -->
+
+    <!-- 网站 多个属性:
+    <select name="" id="" ng-model="val" ng-options="(x.name+'-'+x.url) for x in options">
+    </select>
+    <br> -->
+
+    网站 根据属性:
+    <select name="" id="" ng-model="val" ng-options="(x.name+'-'+x.url) group by x.type for x in options">
+    </select>
+    <br>
+    
+
+    <!-- 网站 设置val值:
+    <select name="" id="" ng-model="val" ng-options="x.url as x.name for x in options">
+    </select>
+    <br> -->
+    <p>您选择的是:{{val}}</p>
+
+    <script src="static/angular/1.5.0/angular.js"></script>
+    <script>
+        var app = angular.module('app',[]);
+
+        app.controller('myCon',function($scope){
+            $scope.options=[
+                {
+                    'name':'阿里巴巴',
+                    'url':'www.alibaba.com',
+                    'type': 1
+                }, {
+                    'name': '腾讯',
+                    'url': 'www.baidu.com',
+                    'type': 2
+                }, {
+                    'name': '京东',
+                    'url': 'www.jd.com',
+                    'type': 1
+                }, {
+                    'name': '华为',
+                    'url': 'www.huawei.com',
+                    'type': 2
+                },
+                {
+                    'name': '小米',
+                    'url': 'www.xiaomi.com',
+                    'type': 1
+                }, {
+                    'name': '中国工商银行',
+                    'url': 'www.icbc.com',
+                    'type': 1
+                },
+            ]
+        })
+    </script>
+</body>
+</html>

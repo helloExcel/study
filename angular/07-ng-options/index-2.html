@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>demo</title>
+</head>
+<body ng-app="app" ng-controller="myCon">
+    
+    <select name="" id="" ng-model="val" ng-options="x for (x,y) in options">
+
+    </select>
+
+    <p>您选择的是:{{val}}</p>
+
+    <script src="static/angular/1.5.0/angular.js"></script>
+    <script>
+        var app = angular.module('app',[]);
+
+        app.controller('myCon',function($scope){
+            $scope.options={
+                    'name':'阿里巴巴',
+                    'url':'www.alibaba.com',
+                    'type': 1
+                }
+        })
+    </script>
+</body>
+</html>

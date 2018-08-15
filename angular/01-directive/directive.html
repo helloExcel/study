@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>demo</title>
+</head>
+<body ng-app="app">
+    <my-tltle></my-tltle>
+    
+    <script src="static/angular/1.5.0/angular.js"></script>
+    <script>
+        var app = angular.module('app',[]);
+        
+        app.directive('myTltle',function(){
+            return{
+                restrict: 'AEC',
+                template: '<h1>首页</h1>'
+            }
+        })
+    </script>
+</body>
+</html>

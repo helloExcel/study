@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>demo</title>
+</head>
+<body ng-app="app">
+    <ul>
+        <a href="#/home">首页</a>
+        <a href="#/news">新闻</a>
+        <a href="#/game">游戏</a>
+    </ul>
+
+    <div ng-view></div>
+
+    <script src="static/angular/1.5.0/angular.js"></script>
+    <script src="static/angular-route/1.3.13/angular-route.js"></script>
+    <script>
+        var app = angular.module('app',['ngRoute']);
+
+        app.config(function($routeProvider){
+            $routeProvider
+                .when('/',{
+                    templateUrl : 'template/home.html',
+                    'controller' : 'homeCon'
+                })
+                .when('/home',{
+                    templateUrl : 'template/home.html',
+                    'controller': 'homeCon'
+                })
+                .when('/news', {
+                    templateUrl: 'template/news.html',
+                    'controller': 'newsCon'
+                })
+                .when('/game', {
+                    templateUrl: 'template/game.html',
+                    'controller': 'gameCon'
+                })
+                .otherwise({redirectTo: '/home'})
+        })
+
+        app.controller('homeCon',function($scope){
+            $scope.string = '首页页面';
+        }).
+        controller('newsCon',function($scope){
+            $scope.string = "新闻页面";
+        }).
+        controller('gameCon',function($scope){
+            $scope.string = "游戏页面";
+        })
+    </script>
+</body>
+</html>

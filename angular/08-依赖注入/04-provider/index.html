@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>demo</title>
+</head>
+<body ng-app="app" ng-controller="con">
+    a:<input type="text" ng-model="a"><br>
+    b:<input type="text" ng-model="b"><br>
+    结果:{{c}}
+    <script src="static/angular/1.5.0/angular.js"></script>
+    <script>
+        var app = angular.module('app',[]);
+        app.config(function($provide){
+            $provide.provider('myMath', function(){
+                this.$get=function(){
+                    var thisMath={}
+
+                    thisMath.ride=function(a,b){
+                        return a*b;
+                    }
+                    return thisMath;
+                }
+            })
+        })
+
+        app.controller('con',function($scope,myMath){
+            $scope.b=1;
+            $scope.$watch('b',function(newVal,oldVal){
+                $scope.c=myMath.ride($scope.a,$scope.b);
+            })
+        })
+    </script>
+</body>
+</html>
